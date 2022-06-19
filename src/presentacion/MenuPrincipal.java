@@ -19,7 +19,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     //public static CRUDCompras frmCompras;
 //    public static ParaProveedores frmprovee;
 //    public static CRUDMarca frmmarca;
-//    public static CRUDVenta frmventa;
+    public static CRUDVenta frmventa;
 //    public static Reportes reportes;
 //    public static CRUDOpinion opiniones;
 //    Usuario mod = new Usuario();
@@ -384,12 +384,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnComprasActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-//         if(frmventa == null)
-//        {
-//            frmventa = new CRUDVenta();
-//            frmventa.setVisible(true);
-//            dispose();
-//        }
+         if(frmventa == null)
+        {
+            int id = 0;
+            frmventa = new CRUDVenta(id,0);
+            frmventa.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnVentasActionPerformed
 
     /**

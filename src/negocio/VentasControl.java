@@ -6,7 +6,6 @@ package negocio;
 
 import database.Conexion;
 import datos.ventasDAO;
-import entidades.Ropa;
 import entidades.Ventas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
