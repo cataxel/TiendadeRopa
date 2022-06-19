@@ -116,16 +116,6 @@ public class ropaDAO implements crud_ropainterface<Ropa>{
     }
 
     @Override
-    public boolean desactivar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean activar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public int total() {
         int numeroderegistros = 0;
         PreparedStatement ps;
@@ -146,11 +136,6 @@ public class ropaDAO implements crud_ropainterface<Ropa>{
         }
         
         return numeroderegistros;
-    }
-
-    @Override
-    public boolean existe(String texto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

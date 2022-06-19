@@ -14,6 +14,20 @@ public class Ventas {
     boolean Estado;
     String folioVenta,fecha;
 
+    public Ventas(){    
+    }
+    public Ventas(int idVenta,int idRopa,String folioventa, String Fecha,double Total,double Descuento
+    ,double IVA,boolean Estado,int Cantidad){
+        this.idVenta = idVenta;
+        this.idRopa = idRopa;
+        this.folioVenta = folioventa;
+        this.fecha = Fecha;
+        this.total = Total;
+        this.Descuento = Descuento;
+        this.Iva = IVA;
+        this.Estado = Estado;
+        this.cantidad = Cantidad;
+    }
     public int getCantidad() {
         return cantidad;
     }
