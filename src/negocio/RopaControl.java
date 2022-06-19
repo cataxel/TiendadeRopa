@@ -51,7 +51,9 @@ public class RopaControl {
         }
         return modelotabla;
     }
-    
+    public List Marcas(){
+        return datos.marcas();
+    }
     public String insertar(String nombre, String descripcion, double precio_costo, double precio_venta,
             double ganancia, String genero, String marca, String imagen,
             int idtipoprenda, int existencias) {

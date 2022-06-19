@@ -24,6 +24,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -1399,25 +1401,11 @@ public class CRUD_ropa extends javax.swing.JFrame {
         }
     }
     public void Marcas(){
-        PreparedStatement ps;
-        ResultSet rs;
-        try{
-            Connection con = Conexion.getCon();
-            ps=con.prepareStatement("SELECT nombreMarca FROM Marca WHERE 1 ORDER BY nombreMarca ASC  ");
-            
-            rs= ps.executeQuery();
-            //rs = ps.getResultSet();
-            cbox_marcas.addItem("Seleccione una opcion");
-            while(rs.next()){
-                cbox_marcas.addItem(rs.getString("nombreMarca"));
-            }
-        }
-        catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        finally{
-            ps=null;
-            rs=null;
+        List<String> marcas = new ArrayList();
+        cbox_marcas.addItem("Seleccione una opcion");
+        marcas=control.Marcas();
+        for (int i=0; i<marcas.size();i++) {
+            cbox_marcas.addItem(marcas.get(i));
         }
     }
     private void TraerTipos(int idClase)

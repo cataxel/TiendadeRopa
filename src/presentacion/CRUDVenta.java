@@ -362,12 +362,6 @@ public class CRUDVenta extends javax.swing.JFrame {
 
         jLabel3.setText("Cantidad");
 
-        Cantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CantidadActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout OperacionesPanelLayout = new javax.swing.GroupLayout(OperacionesPanel);
         OperacionesPanel.setLayout(OperacionesPanelLayout);
         OperacionesPanelLayout.setHorizontalGroup(
@@ -648,10 +642,6 @@ public class CRUDVenta extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_btnRopaActionPerformed
-
-    private void CantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CantidadActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         if(menuprincipal == null)

@@ -335,12 +335,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnRopaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRopaActionPerformed
-        if(frmCRopa == null)
-        {
-           frmCRopa = new CRUD_ropa();
-           frmCRopa.setVisible(true);
-           dispose();
-        }
+        frmCRopa = new CRUD_ropa();
+        frmCRopa.setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_btnRopaActionPerformed
 
     private void btnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedoresActionPerformed
@@ -384,13 +382,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnComprasActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-         if(frmventa == null)
-        {
-            int id = 0;
-            frmventa = new CRUDVenta(id,0);
-            frmventa.setVisible(true);
-            dispose();
-        }
+        int id = 0;
+        frmventa = new CRUDVenta(id, 0);
+        frmventa.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVentasActionPerformed
 
     /**

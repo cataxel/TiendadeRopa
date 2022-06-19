@@ -5,7 +5,7 @@
 package datos;
 
 import datos.interfaces.crud_ropainterface;
-import entidades.Ropa;
+import entidades.*;
 import java.util.List;
 import database.Conexion;
 import java.sql.PreparedStatement;
@@ -50,7 +50,25 @@ public class ropaDAO implements crud_ropainterface<Ropa>{
         }
         return registros;
     }
-
+    public List<Marca> marcas(){
+        List nombre = new ArrayList();
+        try{
+            ps = Con.getConexion().prepareStatement("SELECT nombreMarca FROM Marca WHERE 1 ORDER BY nombreMarca ASC  ");
+            rs= ps.executeQuery();
+            while(rs.next()){
+                nombre.add(rs.getString(1));
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        finally{
+            ps=null;
+            rs=null;
+            Con.Desconectar();
+        }
+        return nombre;
+    }
     @Override
     public boolean insertar(Ropa obj) {
         resp = false;
