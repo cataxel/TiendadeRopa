@@ -708,7 +708,6 @@ public class CRUD_ropa extends javax.swing.JFrame {
                 cmbtipo1.setSelectedItem(rs.getString(10));
                 
                 pintarImagen(lblRopa, "src/presentacion/img/"+rs.getString(8));
-                System.out.println(rs.getString(8));
                 existencias.setText(rs.getString(11));
                 DefaultTableModel modelotabla = (DefaultTableModel) jTable1.getModel();
                 modelotabla.setRowCount(0);
@@ -1334,25 +1333,26 @@ public class CRUD_ropa extends javax.swing.JFrame {
     }//GEN-LAST:event_rbcalzadoMouseClicked
 
     private void btnAgregarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarImagenActionPerformed
-        String ruta;
-        //crear un obj que permita seleccionar un archvio
-        JFileChooser jf = new JFileChooser();
-        //establecer un filtro para seleccion de imagenes
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Gif,JPG,PNG", "gif","jpg","png");
-        // establecer el filtro al objeto jf
-        jf.setFileFilter(filtro);
-        // abrir el cuadro de dialogo
-        int resp = jf.showOpenDialog(this);
-        // validar la respuesta
-        if(resp == JFileChooser.APPROVE_OPTION){
-            // obtener la ruta del archivo seleccionado
-            ruta = jf.getSelectedFile().getPath();
-            // obtener el nombre del archivo seleccionado
-            imagenRopa = jf.getSelectedFile().getName();
-            
-            // pintar la imagen que selecciono el usuario
-            pintarImagen(lblRopa,ruta);
-        }
+          imagen();
+//        String ruta;
+//        crear un obj que permita seleccionar un archvio
+//        JFileChooser jf = new JFileChooser();
+//        establecer un filtro para seleccion de imagenes
+//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Gif,JPG,PNG", "gif","jpg","png");
+//         establecer el filtro al objeto jf
+//        jf.setFileFilter(filtro);
+//         abrir el cuadro de dialogo
+//        int resp = jf.showOpenDialog(this);
+//         validar la respuesta
+//        if(resp == JFileChooser.APPROVE_OPTION){
+//             obtener la ruta del archivo seleccionado
+//            ruta = jf.getSelectedFile().getPath();
+//             obtener el nombre del archivo seleccionado
+//            imagenRopa = jf.getSelectedFile().getName();
+//            
+//             pintar la imagen que selecciono el usuario
+//            pintarImagen(lblRopa,ruta);
+//        }
     }//GEN-LAST:event_btnAgregarImagenActionPerformed
 
     private void txtVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVolverMouseClicked
@@ -1446,10 +1446,12 @@ public class CRUD_ropa extends javax.swing.JFrame {
             ruta = jf.getSelectedFile().getPath();
             // obtener el nombre del archivo seleccionado
             imagenRopa = jf.getSelectedFile().getName();
-            
+            pintarImagen(jLabel1, ruta);
             //copiar archivo y pegarlo
             String destino = "src/presentacion/img/";
+            System.out.println(ruta+"/n"+"s");
             try {
+                
                 copiarpegarimagen(ruta, destino,imagenRopa);
             } catch (IOException ex) {
                 Logger.getLogger(CRUD_ropa.class.getName()).log(Level.SEVERE, null, ex);
