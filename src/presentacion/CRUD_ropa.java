@@ -156,24 +156,9 @@ public class CRUD_ropa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nombre", "Descripcion", "P.Costo", "P.Venta", "Ganancia", "Genero", "Marca", "Existencias", "Clase", "Tipo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tablaropa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaropaMouseClicked(evt);
@@ -528,32 +513,32 @@ public class CRUD_ropa extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(OperacionesLayout.createSequentialGroup()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbtipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel9))
-                            .addGroup(OperacionesLayout.createSequentialGroup()
-                                .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnModificar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(OperacionesLayout.createSequentialGroup()
-                                .addComponent(btnseleccionartalla)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtexistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbtalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel3))
+                                    .addGroup(OperacionesLayout.createSequentialGroup()
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbtipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jLabel9))
+                                    .addGroup(OperacionesLayout.createSequentialGroup()
+                                        .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnModificar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnEliminar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(OperacionesLayout.createSequentialGroup()
+                                        .addComponent(btnseleccionartalla)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtexistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbtalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(OperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(OperacionesLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -570,7 +555,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
             .addGroup(OperacionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(35, 35, 35)
+                .addGap(41, 41, 41)
                 .addGroup(OperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -625,7 +610,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
                                 .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel16)))
-                        .addGap(0, 33, Short.MAX_VALUE))
+                        .addGap(0, 27, Short.MAX_VALUE))
                     .addComponent(lblRopa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(OperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -737,6 +722,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
 
     private void btnseleccionartallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnseleccionartallaActionPerformed
         System.out.println(claseSeleccionada);
+        
         MostrarOcultarComponentes(false);
     }//GEN-LAST:event_btnseleccionartallaActionPerformed
 
@@ -1314,6 +1300,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
     private void rbsuperiorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbsuperiorMouseClicked
         TraerTallas(1);
         TraerTipos(1);
+        tipotalla(1);
         claseSeleccionada=1;
         LimpiarTablaTallas();
     }//GEN-LAST:event_rbsuperiorMouseClicked
@@ -1321,6 +1308,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
     private void rbinferiorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbinferiorMouseClicked
         TraerTallas(2);
         TraerTipos(2);
+        tipotalla(2);
         claseSeleccionada=2;
         LimpiarTablaTallas();
     }//GEN-LAST:event_rbinferiorMouseClicked
@@ -1328,6 +1316,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
     private void rbcalzadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbcalzadoMouseClicked
         TraerTallas(3);
         TraerTipos(3);
+        tipotalla(3);
         claseSeleccionada=3;
         LimpiarTablaTallas();
     }//GEN-LAST:event_rbcalzadoMouseClicked
@@ -1378,6 +1367,16 @@ public class CRUD_ropa extends javax.swing.JFrame {
          lbl.setIcon(icono);
          repaint();   
      }
+    private void tipotalla(int tipo){
+        cmbtalla.removeAllItems();
+        List<String> tallas = new ArrayList();
+        cmbtalla.addItem("Seleccione una opcion");
+        tallas = control.Tallas(tipo);
+        
+        for(int i=0;i<tallas.size();i++){
+            cmbtalla.addItem(tallas.get(i));
+        }
+    }
     private void TraerTallas(int idClase){
         try
         {
@@ -1392,7 +1391,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
             while(rs.next())
             {
                cmbtalla.addItem(rs.getString(2));
-               txtexistencias.setText(rs.getString(3));
+               //txtexistencias.setText(rs.getString(3));
             }
         }
         catch(SQLException e)
@@ -1430,8 +1429,8 @@ public class CRUD_ropa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
-    private void imagen(){
-        String ruta;
+    private String imagen(){
+        String ruta = "";
         //crear un obj que permita seleccionar un archvio
         JFileChooser jf = new JFileChooser();
         //establecer un filtro para seleccion de imagenes
@@ -1446,8 +1445,7 @@ public class CRUD_ropa extends javax.swing.JFrame {
             ruta = jf.getSelectedFile().getPath();
             // obtener el nombre del archivo seleccionado
             imagenRopa = jf.getSelectedFile().getName();
-            pintarImagen(jLabel1, ruta);
-            //copiar archivo y pegarlo
+            pintarImagen(lblRopa, ruta);
             String destino = "src/presentacion/img/";
             System.out.println(ruta+"/n"+"s");
             try {
@@ -1456,7 +1454,10 @@ public class CRUD_ropa extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(CRUD_ropa.class.getName()).log(Level.SEVERE, null, ex);
             }
+            //copiar archivo y pegarlo
+            
         }
+        return ruta;
     }
     private void MostrarOcultarComponentes(boolean accion){
         jLabel5.setVisible(accion);

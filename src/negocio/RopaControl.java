@@ -30,7 +30,7 @@ public class RopaControl {
         List<Ropa> lista = new ArrayList();
         lista.addAll(datos.listar());
         String titulos[] = {"id","Nombre","Descripcion","P.Costo","P.Venta","Genero",
-        "Marca","Ganancia","Clase","Tipo","Existencia"};
+        "Marca","Ganancia","Existencia","Clase","Tipo"};
         modelotabla = new DefaultTableModel(null,titulos);
         String registro[] = new String[11];
         registrosMostrados = 0;
@@ -43,9 +43,10 @@ public class RopaControl {
             registro[5] = item.getGenero();
             registro[6] = item.getMarca();
             registro[7] = Double.toString(item.getGanancia());
-            registro[8] = item.getNombretalla();
-            registro[9] = item.getNombreCprenda();
-            registro[10] = Integer.toString(item.getExistencias());
+            registro[8] = Integer.toString(item.getExistencias());
+            registro[9] = item.getNombretalla();
+            registro[10] = item.getNombreCprenda();
+            
             modelotabla.addRow(registro);
             registrosMostrados += 1;
         }
@@ -53,6 +54,9 @@ public class RopaControl {
     }
     public List Marcas(){
         return datos.marcas();
+    }
+    public List Tallas(int tipo){
+        return datos.tallas(tipo);
     }
     public String insertar(String nombre, String descripcion, double precio_costo, double precio_venta,
             double ganancia, String genero, String marca, String imagen,

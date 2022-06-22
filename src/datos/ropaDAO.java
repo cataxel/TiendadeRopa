@@ -50,6 +50,25 @@ public class ropaDAO implements crud_ropainterface<Ropa>{
         }
         return registros;
     }
+    public List<Ropa_Tallas> tallas(int tipo){
+        List nombre = new ArrayList();
+        try{
+            ps = Con.getConexion().prepareStatement("select t.nombre from Tallas t inner join ClasePrenda cp on t.idclasePrenda  = cp.idClasePrenda  where cp.idclasePrenda=?;");
+            ps.setInt(1, tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                nombre.add(rs.getString(1));
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("datos.ropaDAO.tallas()");
+        }finally{
+            ps=null;
+            rs=null;
+            Con.Desconectar();
+        }
+        return nombre;
+    }
     public List<Marca> marcas(){
         List nombre = new ArrayList();
         try{
