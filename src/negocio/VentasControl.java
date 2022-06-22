@@ -59,11 +59,15 @@ public class VentasControl extends Conexion {
         }
         return modelotabla;
     }
+    public double precio(int id){
+        return datos.precio(id);
+    }
     public String insertar(int idRopa,String folioventa, String Fecha,double Total,double Descuento
     ,double IVA,boolean Estado,int Cantidad){
         obj.setIdRopa(idRopa);
         obj.setFolioVenta(folioventa);
         obj.setFecha(Fecha);
+        obj.setTotal(Total);
         obj.setDescuento(Descuento);
         obj.setIva(IVA);
         obj.setEstado(Estado);

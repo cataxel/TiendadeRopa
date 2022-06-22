@@ -30,16 +30,19 @@ public class CRUDVenta extends javax.swing.JFrame {
      * Creates new form CRUDVenta
      */
     private final VentasControl control;
-    private int ids;
+    private int ids,cantidad,existencia;
+    private double precio,descuento,total;
     private MenuPrincipal menuprincipal;
     public CRUDVenta(int id,int tap) {
         initComponents();
         control = new VentasControl();
         ids = id;
         txtIdRopa.setText(id+"");
+        txtIva.setText("16");
         if(tap == 1)
         {
             paneles.setSelectedIndex(tap);
+            cantidad = 0;
         }
         CargarTabla();
     }
@@ -137,6 +140,30 @@ public class CRUDVenta extends javax.swing.JFrame {
         tabla.setRowHeight(30);
      }
     
+    private void calcularDT(){
+    precio = control.precio(Integer.parseInt(txtIdRopa.getText()));
+        if (Cantidad.getText().isEmpty())
+            Cantidad.setText("");
+        else {
+            cantidad = Integer.parseInt(Cantidad.getText());
+            if (txtDescuento.getText().isEmpty()) {
+                txtDescuento.setText("");
+            } else {
+                existencia = control.existencias(Integer.parseInt(txtIdRopa.getText()));
+                if(txtDescuento.getText().equals("0")){
+                    total = (1.16*(precio * cantidad));
+                    txtTotal.setText(total+"");
+                } else {
+                    total = (precio * cantidad);
+                    descuento = (Double.parseDouble(txtDescuento.getText())/100) * total;
+                    total = 1.16*(total-descuento);
+                    txtTotal.setText(total + "");
+                    System.out.println(cantidad + ":" + total + "  " + descuento);
+                }
+            }
+            
+        }
+    }
     private void limpiar(){
         id.setText("ID");
         txtIdRopa.setText("");
@@ -330,10 +357,17 @@ public class CRUDVenta extends javax.swing.JFrame {
 
         jLabel9.setText("Descuento");
 
+        txtDescuento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDescuentoKeyReleased(evt);
+            }
+        });
+
         jLabel10.setText("Total");
 
         jLabel11.setText("IVA");
 
+        txtIva.setEditable(false);
         txtIva.setText("16");
 
         btnAgregar.setText("Agregar");
@@ -361,6 +395,12 @@ public class CRUDVenta extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Cantidad");
+
+        Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CantidadKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout OperacionesPanelLayout = new javax.swing.GroupLayout(OperacionesPanel);
         OperacionesPanel.setLayout(OperacionesPanelLayout);
@@ -557,39 +597,34 @@ public class CRUDVenta extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Debes ingresar una fecha");
                 txtFecha.requestFocus();
             } else {
-                if (txtTotal.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Debes ingresar un Total");
-                    txtTotal.requestFocus();
+                if (txtDescuento.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debes ingresar un Descuento");
+                    txtDescuento.requestFocus();
                 } else {
-                    if (txtDescuento.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Debes ingresar un Descuento");
-                        txtDescuento.requestFocus();
+
+                    if (txtIdRopa.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Debes ingresar un id de alguna prenda");
+                        txtIdRopa.requestFocus();
                     } else {
-
-                        if (txtIdRopa.getText().isEmpty()) {
-                            JOptionPane.showMessageDialog(null, "Debes ingresar un id de alguna prenda");
-                            txtIdRopa.requestFocus();
-                        } else {
-
-                            int cantidad = Integer.parseInt(Cantidad.getText());
-                            int existencia = control.existencias(Integer.parseInt(txtIdRopa.getText()));
-                            System.out.println(cantidad + "<" + existencia);
-                            if (cantidad < existencia) {
-                                cantidad = existencia - cantidad;
-                                System.out.println(cantidad);
-                                control.Modificar(cantidad, Integer.parseInt(txtIdRopa.getText()));
-                                resp = control.insertar(Integer.parseInt(txtIdRopa.getText()), txtFolioVenta.getText(), txtFecha.getText(),
-                                        Double.parseDouble(txtTotal.getText()), Double.parseDouble(txtDescuento.getText()),
-                                        Double.parseDouble(txtIva.getText()), btnEstado.isSelected(), Integer.parseInt(Cantidad.getText()));
-                                if (resp.equals("OK")) {
-                                    JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
-                                    limpiar();
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "Error al insertar");
-                                }
+                        //precio = control.precio(Integer.parseInt(txtIdRopa.getText()));
+                        //cantidad = Integer.parseInt(Cantidad.getText());
+                        existencia = control.existencias(Integer.parseInt(txtIdRopa.getText()));
+                        System.out.println(cantidad + "<" + existencia);
+                        if (cantidad <= existencia) {
+                            cantidad = existencia - cantidad;
+                            System.out.println(txtTotal);
+                            control.Modificar(cantidad, Integer.parseInt(txtIdRopa.getText()));
+                            resp = control.insertar(Integer.parseInt(txtIdRopa.getText()), txtFolioVenta.getText(), txtFecha.getText(),
+                                    Double.parseDouble(txtTotal.getText()), Double.parseDouble(txtDescuento.getText()),
+                                    Double.parseDouble(txtIva.getText()), btnEstado.isSelected(), Integer.parseInt(Cantidad.getText()));
+                            if (resp.equals("OK")) {
+                                JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
+                                limpiar();
                             } else {
-                                JOptionPane.showMessageDialog(this, "No se pudo realizar la venta por cuestiones de existencias", "Ventas", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Error al insertar");
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(this, "No se pudo realizar la venta por cuestiones de existencias", "Ventas", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
@@ -651,6 +686,14 @@ public class CRUDVenta extends javax.swing.JFrame {
            dispose();
         }
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void CantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadKeyReleased
+        calcularDT();
+    }//GEN-LAST:event_CantidadKeyReleased
+
+    private void txtDescuentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescuentoKeyReleased
+        calcularDT();
+    }//GEN-LAST:event_txtDescuentoKeyReleased
 
     /**
      * @param args the command line arguments

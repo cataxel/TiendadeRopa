@@ -13,8 +13,13 @@ public class Ventas {
     double total, Descuento, Iva;
     boolean Estado;
     String folioVenta,fecha;
+    int preciov,existencias;
 
     public Ventas(){    
+    }
+    public Ventas(int preciov, int existencias){
+        this.preciov = preciov;
+        this.existencias = existencias;
     }
     public Ventas(int idVenta,int idRopa,String folioventa, String Fecha,double Total,double Descuento
     ,double IVA,boolean Estado,int Cantidad){
@@ -28,6 +33,23 @@ public class Ventas {
         this.Estado = Estado;
         this.cantidad = Cantidad;
     }
+
+    public int getPreciov() {
+        return preciov;
+    }
+
+    public void setPreciov(int preciov) {
+        this.preciov = preciov;
+    }
+
+    public int getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(int existencias) {
+        this.existencias = existencias;
+    }
+    
     public int getCantidad() {
         return cantidad;
     }

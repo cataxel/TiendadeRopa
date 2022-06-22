@@ -82,12 +82,28 @@ public class ventasDAO implements crud_ventasInterface<Ventas> {
         }
         return resp;
     }
+    
+    public double precio(int id){
+        double precio = 0;
+        try {
+            ps = Con.getConexion().prepareStatement("SELECT precio_venta from ropa where idropa =  ?;");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if(rs.next())
+                precio = rs.getDouble(1);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            ps = null;
+            rs = null;
+        }
+        
+        return precio;
+    }
 
     @Override
     public int total() {
         int numeroderegistros = 0;
-        PreparedStatement ps;
-        ResultSet rs;
         try{
             ps = Con.getConexion().prepareStatement("SELECT COUNT(*) FROM Ventas");
             rs = ps.executeQuery();
